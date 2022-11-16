@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/W00SHH/skku-graduation-check/issues"
   },
-  "homepage": "https://github.com/W00SHH/skku-graduation-check#readme"
+  "homepage": "https://github.com/W00SHH/skku-graduation-check#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.2"
+  }
 }
