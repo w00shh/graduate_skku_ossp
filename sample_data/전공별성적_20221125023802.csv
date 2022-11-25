@@ -1,0 +1,76 @@
+,번호,수업년도,학수번호,교과목명,이수구분,학점,등급,평점
+0,,수업학기,,영문교과목명,,,,
+1,1.0,2022,CHS2003,빅데이터와인공지능을활용한시스템강건설계,전공,2.0,A+,4.5
+2,,2 학기,,Robust System Design with Big Data Analytics and Artificial Intelligence,,,,
+3,2.0,2022,GEDB003,선형대수학,교양,3.0,B,3.0
+4,,여름학기,,Linear Algebra,,,,
+5,3.0,2022,GEDH019,예술사,교양,3.0,A+,4.5
+6,,1 학기,,History of Art,,,,
+7,4.0,2022,CSE3036,컴퓨터공학세미나,전공,1.0,P,0.0
+8,,1 학기,,Seminar in Computer Engineering,,,,
+9,5.0,2022,SWE3003,데이터베이스개론,전공,3.0,A+,4.5
+10,,1 학기,,Introduction to Database,,,,
+11,6.0,2022,SWE3004,운영체제,전공,3.0,A,4.0
+12,,1 학기,,Operating Systems,,,,
+13,7.0,2022,SWE3006,프로그래밍언어,전공,3.0,A+,4.5
+14,,1 학기,,Programming Languages,,,,
+15,8.0,2022,SWE3026,확률과랜덤프로세스,전공,3.0,B+,3.5
+16,,1 학기,,Probability and Random Process,,,,
+17,9.0,2022,SWE3047,모바일앱프로그래밍실습,전공,2.0,A+,4.5
+18,,1 학기,,Mobile App Programming Lab,,,,
+19,10.0,2022,SFE7221,안전교육,선택,0.0,P,0.0
+20,,1 학기,,Safety Education,,,,
+21,11.0,2020,GEDB012,일반화학1,교양,3.0,C+,2.5
+22,,겨울학기,,General Chemistry 1,,,,
+23,12.0,2020,GEDI012,기초프랑스어1,교양,3.0,B+,3.5
+24,,겨울학기,,Introduction to French 1,,,,
+25,13.0,2020,GEDC010,성균논어,교양,2.0,B,3.0
+26,,2 학기,,The Analects of Confucius,,,,
+27,14.0,2020,GEDG005,비즈니스영어,교양,2.0,B,3.0
+28,,2 학기,,Business English,,,,
+29,15.0,2020,GEDN006,우주론,교양,3.0,B+,3.5
+30,,2 학기,,Cosmology,,,,
+31,16.0,2020,SWE2016,알고리즘개론,전공,3.0,B,3.0
+32,,2 학기,,Algorithms,,,,
+33,17.0,2020,SWE2024,시스템프로그래밍실습,전공,2.0,C+,2.5
+34,,2 학기,,System Programming Lab,,,,
+35,18.0,2020,SWE3005,컴퓨터구조개론,전공,3.0,B+,3.5
+36,,2 학기,,Introduction to Computer Architectures,,,,
+37,19.0,2020,SFE7202,안전교육,선택,0.0,P,0.0
+38,,2 학기,,Safety Education,,,,
+39,20.0,2020,GEDB007,이산수학,교양,3.0,B+,3.5
+40,,1 학기,,Discrete Mathematics,,,,
+41,21.0,2020,GEDS046,이공계경영학,교양,3.0,C+,2.5
+42,,1 학기,,Management for Engineers and Scientists(Technopreneurship),,,,
+43,22.0,2020,SWE2001,시스템프로그램,전공,3.0,B,3.0
+44,,1 학기,,System Program,,,,
+45,23.0,2020,SWE2015,자료구조개론,전공,3.0,B,3.0
+46,,1 학기,,Data Structures,,,,
+47,24.0,2020,SWE2023,JAVA프로그래밍실습,전공,2.0,B,3.0
+48,,1 학기,,JAVA Programming Lab,,,,
+49,25.0,2020,SFE7201,안전교육,선택,0.0,P,0.0
+50,,1 학기,,Safety Education,,,,
+51,26.0,2019,GEDB001,미분적분학1,교양,3.0,C,2.0
+52,,2 학기,,Calculus 1,,,,
+53,27.0,2019,GEDB028,확률및통계,교양,3.0,D,1.0
+54,,2 학기,,Probability and Statistics,,,,
+55,28.0,2019,GEDB030,공학컴퓨터프로그래밍,교양,3.0,C+,2.5
+56,,2 학기,,Computer Programming for Engineers,,,,
+57,29.0,2019,GEDG002,영어발표,교양,2.0,B,3.0
+58,,2 학기,,English Presentation,,,,
+59,30.0,2019,GEDI008,심리학입문,교양,3.0,B,3.0
+60,,2 학기,,Introduction to Psychology,,,,
+61,31.0,2019,GEDT002,기호논리학,교양,2.0,C,2.0
+62,,2 학기,,Semiotic Logic,,,,
+63,32.0,2019,GEDW002,학술적글쓰기,교양,2.0,C+,2.5
+64,,2 학기,,Academic Writing,,,,
+65,33.0,2019,GEDB029,프로그래밍기초와실습,교양,3.0,C,2.0
+66,,1 학기,,Basis and Practice in Programming,,,,
+67,34.0,2019,GEDG001,영어쓰기,교양,2.0,B+,3.5
+68,,1 학기,,English Writing,,,,
+69,35.0,2019,GEDI010,경제학입문,교양,3.0,C+,2.5
+70,,1 학기,,Elementary Economics,,,,
+71,36.0,2019,GEDW004,과학기술글쓰기,교양,2.0,D+,1.5
+72,,1 학기,,Scientific & Technical Writing,,,,
+73,37.0,2019,SWE2020,컴퓨터개론,전공,2.0,B,3.0
+74,,1 학기,,Introduction to Computer Engineering,,,,
