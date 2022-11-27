@@ -26,7 +26,7 @@ function handleExcelDataCsv(sheet) {
     subject_list.push(split_with_enter[i]);
   }
   console.log(subject_list);
-  localStorage.setItem("subject_list", JSON.stringify(subject_list));
+  window.localStorage.setItem("subject_list", JSON.stringify(subject_list));
   document.getElementById("csv_result").innerHTML = subject_list.join("<br>");
 }
 
