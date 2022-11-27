@@ -28,11 +28,12 @@ function handleExcelDataCsv(sheet) {
   for (let i in subject_list) {
     subject_list[i] = subject_list[i].split(",");
   }
-  console.log(subject_list);
   localStorage.setItem("subject_list", JSON.stringify(subject_list));
-  document.getElementById("csv_result").innerHTML = subject_list.join("<br>");
 }
 
 function submit_form() {
-  $("#id_result").text($("#ID_input").val());
+  let Student_ID = [];
+  Student_ID.push($("#ID_input").val());
+  localStorage.setItem("subject_list", JSON.stringify(subject_list));
+  localStorage.setItem("student_ID", JSON.stringify(Student_ID));
 }
