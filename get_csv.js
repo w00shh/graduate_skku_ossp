@@ -28,7 +28,6 @@ function handleExcelDataCsv(sheet) {
   for (let i in subject_list) {
     subject_list[i] = subject_list[i].split(",");
   }
-  console.log(subject_list);
   localStorage.setItem("subject_list", JSON.stringify(subject_list));
 }
 
