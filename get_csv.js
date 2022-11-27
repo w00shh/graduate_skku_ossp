@@ -21,12 +21,13 @@ function handleExcelDataAll(sheet) {
 function handleExcelDataCsv(sheet) {
   //$("#displayExcelCsv").html(XLSX.utils.sheet_to_csv(sheet));
   let split_with_enter = XLSX.utils.sheet_to_csv(sheet).split("\n");
-  let csv_odd = [];
+  let subject_list = [];
   for (let i = 2; i < split_with_enter.length; i = i + 2) {
-    csv_odd.push(split_with_enter[i]);
+    subject_list.push(split_with_enter[i]);
   }
-  console.log(csv_odd);
-  document.getElementById("csv_result").innerHTML = csv_odd.join("<br>");
+  console.log(subject_list);
+  localStorage.setItem("subject_list", JSON.stringify(subject_list));
+  document.getElementById("csv_result").innerHTML = subject_list.join("<br>");
 }
 
 function submit_form() {
