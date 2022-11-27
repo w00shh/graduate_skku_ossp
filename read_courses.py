@@ -70,16 +70,10 @@ GPA_GE /= total_credits_GE
     
 
 
-<<<<<<< HEAD
 experiment_credit = 0.0 # 실험실습.
 major_core_credit = 0.0 # 전공코어 (or 전공핵심).
 major_credit = 0.0 # 전공일반 (or 전공심화).
 
-
-=======
-experiment_credit = 0 # 실험실습.
-major_core_credit = 0 # 전공코어 (or 전공핵심).
-major_credit = 0 # 전공일반 (or 전공심화).
 
 
 if admission_year < 2021:
@@ -106,10 +100,6 @@ if admission_year >= 2021:
         if lecture['name'] in newSoft[2]:
             experiment_credit -= lecture['credit']
             
-# print("Your left credit is ...\n")
-# print(major_core_credit, major_credit, experiment_credit)
-# exit(0)
->>>>>>> new_FEAT_major
 
 result_path = "./sample_data/" +  student_ID + "_result.txt"
 f = open(result_path, "w")
