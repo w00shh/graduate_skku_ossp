@@ -58,8 +58,11 @@ def main():
     major_classes = list() # 전공 과목
     GE_classes = list() # 교양 과목: general elective subject
     
+    total_classes_names = []
+    
     for row in odd_rows:
         lecture = {'name':row[4],'classification':row[5], 'credit':int(row[6]), 'grade':row[8]}
+        total_classes_names.append(row[4])
         
         if row[6] == 'P':
             lecture['grade'] = 4.5
@@ -73,21 +76,23 @@ def main():
     total_credits_major = 0.0
     total_credits_GE = 0.0
 
-
-    for row in odd_rows:
-        lecture = {'name':row[3],'classification':row[4], 'credit':row[5], 'grade':row[7]}
+    # print(odd_rows[2])
+    # exit(0)
+    # for row in odd_rows:
+    #     lecture = {'name':row[3],'classification':row[4], 'credit':row[5], 'grade':row[7]}
         
-        if row[6] == 'P':
-            lecture['grade'] = 4.5
-        if row[6] == 'F':
-            lecture['grade'] = 0.0
-        if lecture['classification'] == '전공':
-            major_classes.append(lecture)
-        if lecture['classification'] == '교양':
-            GE_classes.append(lecture)
+    #     if row[6] == 'P':
+    #         lecture['grade'] = 4.5
+    #     if row[6] == 'F':
+    #         lecture['grade'] = 0.0
+    #     if lecture['classification'] == '전공':
+    #         major_classes.append(lecture)
+    #     if lecture['classification'] == '교양':
+    #         GE_classes.append(lecture)
+    
             
-    total_credits_major = 0.0
-    total_credits_GE = 0.0
+    total_credits_major = 0
+    total_credits_GE = 0
 
     GPA_major = 0.0
     GPA_GE = 0.0
@@ -161,17 +166,28 @@ def main():
 
     result_path = "./sample_data/" +  student_ID + "_result.txt"
     f = open(result_path, "w")
+    f.write("student ID: %d\n\n" % int(student_ID))
     f.write("GPA_total: %f\n" % GPA_total)
     f.write("GPA_major: %f\n" % GPA_major)
     f.write("GPA_GE: %f\n" % GPA_GE)
     f.write("\n")
-    f.write("credits_total: %f\n" % (total_credits_major + total_credits_GE))
-    f.write("credits_major: %f\n" % total_credits_major)
-    f.write("credits_GE: %f\n" % total_credits_GE)
+    f.write("credits_total: %d\n" % (total_credits_major + total_credits_GE))
+    f.write("credits_major: %d\n" % total_credits_major)
+    f.write("credits_GE: %d\n" % total_credits_GE)
     f.write("\n")
     f.write("remaining_major_core_credit: %d\n" % major_core_credit)
     f.write("remaining_major_credit: %d\n" % major_credit)
-    f.write("remaining_experiment_credit: %d" % experiment_credit)
+    f.write("remaining_experiment_credit: %d\n" % experiment_credit)
+    f.write("\nGE left:\n")
+    for i in range(len(student_ID_list)):
+        # f.write("%d " % student_ID_list[i])
+        if student_ID_list[i] < 0:
+            f.write("%d : " % i)
+            for item in seventeenVersion[i]:
+                if item not in total_classes_names:
+                    f.write("%s " % item)
+            f.write("\n")
+    
 
     f.close()
     
