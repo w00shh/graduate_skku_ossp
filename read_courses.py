@@ -125,7 +125,13 @@ def main():
                 major_credit -= lecture['credit']
             if lecture['name'] in newSoft[2]:
                 experiment_credit -= lecture['credit']
-            
+    
+    
+    temp_list = check_remaining_credits(GE_classes, firstVersion)
+    
+    GE_19_list = [2,2,4,2,4,2,3,3,3,24]
+    GE_20_list = [2,3,4,3,8,6,3,3,3,18]
+    GE_22_list = [22,3,4,3,11,6,6,18]
 
     result_path = "./sample_data/" +  student_ID + "_result.txt"
     f = open(result_path, "w")
@@ -143,7 +149,7 @@ def main():
 
     f.close()
     
-    temp_list = check_remaining_credits(GE_classes, firstVersion)
+    
 
 
 if __name__=='__main__':
