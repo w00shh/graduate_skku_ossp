@@ -18,6 +18,8 @@ $ python read_courses.py sample_data/전공별성적_20221125023802.xlsx 2019312
 file_path = sys.argv[1]
 student_ID = sys.argv[2]
 
+admission_year = student_ID[:4]
+
 df = pd.read_excel(file_path)
 output_path=file_path.split('.xlsx')[0]+'.csv'
 df.to_csv(output_path)
