@@ -42,12 +42,13 @@ def which_division_remains (student_ID_list, GE_list):
         
                 
 
-def main(file_path_arg, student_ID_arg):
-    file_path = file_path_arg
-    student_ID = student_ID_arg
+def main():
+# def main(file_path_arg, student_ID_arg):
+    # file_path = file_path_arg
+    # student_ID = student_ID_arg
     
-    # file_path = sys.argv[1]
-    # student_ID = sys.argv[2]
+    file_path = sys.argv[1]
+    student_ID = sys.argv[2]
 
     admission_year = int(student_ID[:4]) # 입학 년도
 
@@ -157,6 +158,7 @@ def main(file_path_arg, student_ID_arg):
         curriculum = thirdVersion
         
     student_ID_list = check_remaining_credits(GE_classes, curriculum)
+    print(student_ID_list)
 
     
     GE_16_list = [2,2,4,2,4,4,2,3,3,3,21]
@@ -169,7 +171,7 @@ def main(file_path_arg, student_ID_arg):
     after which_division_remains(), student_ID_list will be [0, -2, 0, -2, 0, 0, 0, -3, 0, -9] for example.
     That means you need to take two more credits on leadership.
     """
-    
+    print(student_ID_list)
     
     
 
@@ -205,4 +207,4 @@ def main(file_path_arg, student_ID_arg):
 
 
 if __name__=='__main__':
-    main(file_path_arg,student_ID_arg)
+    main()
