@@ -1,0 +1,11 @@
+GPA_total: 3.034091
+GPA_major: 3.485714
+GPA_GE: 2.735849
+
+credits_total: 88.000000
+credits_major: 35.000000
+credits_GE: 53.000000
+
+remaining_major_core_credit: 6
+remaining_major_credit: 19
+remaining_experiment_credit: 8
