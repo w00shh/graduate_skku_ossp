@@ -2,6 +2,8 @@ import pandas as pd
 import sys
 import csv
 
+from software_check import *
+
 """
 xlsx 형식으로 되어있는 엑셀 파일을 읽어 csv 확장자로 변환하고,
 내용을 읽어 전공과목과 교양과목으로 분류해 저장합니다.
@@ -18,7 +20,8 @@ $ python read_courses.py sample_data/전공별성적_20221125023802.xlsx 2019312
 file_path = sys.argv[1]
 student_ID = sys.argv[2]
 
-admission_year = student_ID[:4]
+admission_year = int(student_ID[:4]) # 입학 년도
+
 
 df = pd.read_excel(file_path)
 output_path=file_path.split('.xlsx')[0]+'.csv'
@@ -65,9 +68,16 @@ GPA_major /= total_credits_major
 GPA_GE /= total_credits_GE
 
     
-print(GPA_major)
-print(GPA_GE)
-print(GPA_total)
+# print(GPA_major)
+# print(GPA_GE)
+# print(GPA_total)
+
+experiment_credit = 0.0 # 실험실습.
+major_core_credit = 0.0 # 전공코어 (or 전공핵심).
+major_credit = 0.0 # 전공일반 (or 전공심화).
+
+# if admission_year < 2021:
+#     print(oldSoft)
 
 result_path = "./sample_data/" +  student_ID + "_result.txt"
 f = open(result_path, "w")
