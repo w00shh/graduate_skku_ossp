@@ -18,7 +18,7 @@ sys.argv[2] = your student id
 $ python read_courses.py sample_data/전공별성적_20221125023802.xlsx 2019312493
 """
 
-def check_remaining_credits(classes, curriculum):
+def check_remaining_credits (classes, curriculum):
     length = len(curriculum)
     lectures_credits_taken = [0 for j in range(length)]
     
@@ -26,8 +26,18 @@ def check_remaining_credits(classes, curriculum):
         for i in range(length):
             if lecture['name'] in curriculum[i]:
                 lectures_credits_taken[i] += lecture['credit']
+                break
     
     return lectures_credits_taken
+
+"""
+after which_division_remains(), student_ID_list will be [0, -2, 0, -2, 0, 0, 0, -3, 0, -9] for example.
+That means you need to take two more credits on leadership.
+"""
+def which_division_remains (student_ID_list, GE_list):
+    for i in range(len(GE_list)):
+        student_ID_list[i] -= GE_list[i]
+        # GE_list[i] -= student_ID_list[i]
                 
 
 def main():
@@ -100,8 +110,6 @@ def main():
     major_core_credit = 0.0 # 전공코어 (or 전공핵심).
     major_credit = 0.0 # 전공일반 (or 전공심화).
 
-
-
     if admission_year < 2021:
         experiment_credit = 14
         major_core_credit = 27
@@ -125,13 +133,31 @@ def main():
                 major_credit -= lecture['credit']
             if lecture['name'] in newSoft[2]:
                 experiment_credit -= lecture['credit']
+                
     
+    student_ID_list = []
+    if admission_year <= 2016:
+        student_ID_list = check_remaining_credits(GE_classes, seventeenVersion)
+    if admission_year > 2016 and admission_year <= 2019:
+        student_ID_list = check_remaining_credits(GE_classes, seventeenVersion)
+    if admission_year == 2020:
+        student_ID_list = check_remaining_credits(GE_classes, secondVersion)
+    if admission_year > 2020:
+        student_ID_list = check_remaining_credits(GE_classes, thirdVersion)
     
-    temp_list = check_remaining_credits(GE_classes, firstVersion)
-    
-    GE_19_list = [2,2,4,2,4,2,3,3,3,24]
+    GE_16_list = [2,2,4,2,4,4,2,3,3,3,21]
+    GE_17_19_list = [2,2,4,2,4,2,3,3,3,24]
     GE_20_list = [2,3,4,3,8,6,3,3,3,18]
-    GE_22_list = [22,3,4,3,11,6,6,18]
+    GE_21_22_list = [22,3,4,3,11,6,6,18]
+    
+    which_division_remains(student_ID_list, GE_17_19_list)
+    """
+    after which_division_remains(), student_ID_list will be [0, -2, 0, -2, 0, 0, 0, -3, 0, -9] for example.
+    That means you need to take two more credits on leadership.
+    """
+    # print(student_ID_list)
+    
+    
 
     result_path = "./sample_data/" +  student_ID + "_result.txt"
     f = open(result_path, "w")
