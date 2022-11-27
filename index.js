@@ -16,12 +16,12 @@ function check_remaining_credits (classes, curriculum) {
     for (let i=0; i<classes.length; i++) {
         for (let j=0; j<length; j++) {
             if ( curriculum[keys[j]].includes(classes[i]['name']) ) {
-                lectures_credits_taken[i] += classes[i]['credit']
+                lectures_credits_taken[j] += classes[i]['credit']
                 // break;
             }
         }
     }
-    console.log(lectures_credits_taken.length)
+    console.log(lectures_credits_taken)
     return lectures_credits_taken;
 }
 
@@ -158,6 +158,8 @@ let GE_check = {
 let odd_rows = JSON.parse(window.localStorage.getItem('subject_list'));
 console.log(odd_rows[2]);
 
+console.log(window.localStorage.getItem("student_ID"))
+
 
 let data = []
 
@@ -274,10 +276,27 @@ if (admission_year > 2020) {
 
 // console.log(GE_classes)
 student_ID_list = check_remaining_credits(GE_classes, curriculum);
-console.log(student_ID_list)
+console.log(student_ID_list, GE_list)
 which_division_remains(student_ID_list, GE_list);
 
+console.log(student_ID_list)
+
 console.log(GPA_major)
+console.log(GPA_GE)
+console.log(GPA_total)
+
+console.log(total_credits_major)
+console.log(total_credits_GE)
+
+console.log(student_ID_list)
+keys = Object.keys(curriculum)
+console.log(keys)
+
+for (let j=0; j<student_ID_list.length; j++) {
+    if (student_ID_list[j] < 0) {
+        console.log(keys[j] ,":", (-1) * student_ID_list[j])
+    }
+}
 
 // 여기는 파이썬으로 file에 write하는 방식.
 
