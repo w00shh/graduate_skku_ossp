@@ -205,4 +205,4 @@ def main(file_path_arg, student_ID_arg):
 
 
 if __name__=='__main__':
-    main()
+    main(file_path_arg,student_ID_arg)
