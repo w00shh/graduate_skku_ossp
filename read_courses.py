@@ -140,16 +140,20 @@ def main():
             if lecture['name'] in newSoft[2]:
                 experiment_credit -= lecture['credit']
                 
-    
+    curriculum = None
     student_ID_list = []
+    
     if admission_year <= 2016:
-        student_ID_list = check_remaining_credits(GE_classes, seventeenVersion)
+        curriculum = sixteenVersion
     if admission_year > 2016 and admission_year <= 2019:
-        student_ID_list = check_remaining_credits(GE_classes, seventeenVersion)
+        curriculum = seventeenVersion
     if admission_year == 2020:
-        student_ID_list = check_remaining_credits(GE_classes, secondVersion)
+        curriculum = secondVersion
     if admission_year > 2020:
-        student_ID_list = check_remaining_credits(GE_classes, thirdVersion)
+        curriculum = thirdVersion
+        
+    student_ID_list = check_remaining_credits(GE_classes, curriculum)
+
     
     GE_16_list = [2,2,4,2,4,4,2,3,3,3,21]
     GE_17_19_list = [2,2,4,2,4,2,3,3,3,24]
@@ -161,6 +165,7 @@ def main():
     after which_division_remains(), student_ID_list will be [0, -2, 0, -2, 0, 0, 0, -3, 0, -9] for example.
     That means you need to take two more credits on leadership.
     """
+    
     
     
 
@@ -182,9 +187,9 @@ def main():
     for i in range(len(student_ID_list)):
         # f.write("%d " % student_ID_list[i])
         if student_ID_list[i] < 0:
-            curriculum_name = list(seventeenVersion[i].keys())[0]
+            curriculum_name = list(curriculum[i].keys())[0]
             f.write("%s : " %  curriculum_name)
-            curriculum_courses = seventeenVersion[i][curriculum_name]
+            curriculum_courses = curriculum[i][curriculum_name]
             for item in curriculum_courses:
                 if item not in total_classes_names:
                     f.write("%s " % item)
