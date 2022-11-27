@@ -1,15 +1,27 @@
 function check_remaining_credits (classes, curriculum) {
-    let length = curriculum.keys().length;
+    // console.log(curriculum["17Insung"])
+
+    let length = Object.keys(curriculum).length;
+    let keys = Object.keys(curriculum)
+    // console.log(keys[2])
     let lectures_credits_taken = new Array(length)
+    for (let i=0; i<length; i++) {
+        lectures_credits_taken[i] = 0;
+    }
+    console.log(lectures_credits_taken.length)
+    // console.log(classes)
+    // console.log(classes[2]['name'])
+    // console.log(curriculum[keys[2]] )
 
     for (let i=0; i<classes.length; i++) {
         for (let j=0; j<length; j++) {
-            if ( Object.values(curriculum[i]).includes(classes[i]['name']) ) {
+            if ( curriculum[keys[j]].includes(classes[i]['name']) ) {
                 lectures_credits_taken[i] += classes[i]['credit']
-                break;
+                // break;
             }
         }
     }
+    console.log(lectures_credits_taken.length)
     return lectures_credits_taken;
 }
 
@@ -143,8 +155,8 @@ let GE_check = {
     "일반물리학1", "일반물리학2", "일반화학1", "일반화학2", "확률및통계", "미분적분학실습1", "미분적분학실습2", "생명과학실험1", "생명과학실험2", "일반물리학실험1", "일반물리학실험2", "일반화학실험1", "일반화학실험2"]}
 }
 
-let odd_rows = window.localStorage.getItem('subject_list');
-console.log(odd_rows.length);
+let odd_rows = JSON.parse(window.localStorage.getItem('subject_list'));
+console.log(odd_rows[2]);
 
 
 let data = []
@@ -155,7 +167,8 @@ let GE_classes = []
 let total_classes_names = []
 
 for (row of odd_rows) {
-    let lecture = {'name':row[4],'classification':row[5], 'credit':parseInt(row[6]), 'grade':row[8]};
+    let lecture = {'name':row[3],'classification':row[4], 'credit':parseInt(row[5]), 'grade':row[7]};
+    // console.log(row)
     total_classes_names.push(row[4])
 
     if (row[6] === 'P') {
@@ -204,13 +217,13 @@ if (admission_year >= 2021) {
     major_core_credit = 36
     major_credit = 21
     for (lecture of major_classes) {
-        if (newSoft[0].includes(lecture['name'])) {
+        if (software_check["newMajorCore"].includes(lecture['name'])) {
             major_core_credit -= lecture['credit']
         }
-        if (newSoft[1].includes(lecture['name'])) {
+        if (software_check["newMajorNormal"].includes(lecture['name'])) {
             major_credit -= lecture['credit']
         }
-        if (newSoft[2].includes(lecture['name'])) {
+        if (software_check["newExperiment"].includes(lecture['name'])) {
             experiment_credit -= lecture['credit']
         }
     }
@@ -221,13 +234,13 @@ if (admission_year < 2021) {
     major_core_credit = 27
     major_credit = 24
     for (lecture of major_classes) {
-        if (oldSoft[0].includes(lecture['name'])) {
+        if (software_check["oldMajorCore"].includes(lecture['name'])) {
             major_core_credit -= lecture['credit']
         }
-        if (oldSoft[1].includes(lecture['name'])) {
+        if (software_check["oldMajorNormal"].includes(lecture['name'])) {
             major_credit -= lecture['credit']
         }
-        if (oldSoft[2].includes(lecture['name'])) {
+        if (software_check["oldExperiment"].includes(lecture['name'])) {
             experiment_credit -= lecture['credit']
         }
     }
@@ -259,7 +272,9 @@ if (admission_year > 2020) {
     GE_list = GE_20_21_list;
 }
 
+// console.log(GE_classes)
 student_ID_list = check_remaining_credits(GE_classes, curriculum);
+console.log(student_ID_list)
 which_division_remains(student_ID_list, GE_list);
 
 console.log(GPA_major)
