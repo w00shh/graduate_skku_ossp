@@ -1,7 +1,0 @@
-GPA_total: 3.085227
-GPA_major: 3.614286
-GPA_GE: 2.735849
-
-credits_total: 88.000000
-credits_major: 35.000000
-credits_Ge: 53.000000

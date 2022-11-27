@@ -37,7 +37,7 @@ GE_classes = list() # 교양 과목: general elective subject
 
 
 for row in odd_rows:
-    lecture = {'name':row[3],'classification':row[4], 'credit':row[5], 'grade':row[7]}
+    lecture = {'name':row[3],'classification':row[4], 'credit':int(row[5]), 'grade':row[7]}
     
     if row[6] == 'P':
         lecture['grade'] = 4.5
@@ -72,12 +72,38 @@ GPA_GE /= total_credits_GE
 # print(GPA_GE)
 # print(GPA_total)
 
-experiment_credit = 0.0 # 실험실습.
-major_core_credit = 0.0 # 전공코어 (or 전공핵심).
-major_credit = 0.0 # 전공일반 (or 전공심화).
+experiment_credit = 0 # 실험실습.
+major_core_credit = 0 # 전공코어 (or 전공핵심).
+major_credit = 0 # 전공일반 (or 전공심화).
 
-# if admission_year < 2021:
-#     print(oldSoft)
+
+if admission_year < 2021:
+    experiment_credit = 14
+    major_core_credit = 27
+    major_credit = 24 
+    for lecture in major_classes:
+        if lecture['name'] in oldSoft[0]:
+            major_core_credit -= lecture['credit']
+        if lecture['name'] in oldSoft[1]:
+            major_credit -= lecture['credit']
+        if lecture['name'] in oldSoft[2]:
+            experiment_credit -= lecture['credit']
+            
+if admission_year >= 2021:
+    experiment_credit = 6
+    major_core_credit = 36
+    major_credit = 21
+    for lecture in major_classes:
+        if lecture['name'] in newSoft[0]:
+            major_core_credit -= lecture['credit']
+        if lecture['name'] in newSoft[1]:
+            major_credit -= lecture['credit']
+        if lecture['name'] in newSoft[2]:
+            experiment_credit -= lecture['credit']
+            
+# print("Your left credit is ...\n")
+# print(major_core_credit, major_credit, experiment_credit)
+# exit(0)
 
 result_path = "./sample_data/" +  student_ID + "_result.txt"
 f = open(result_path, "w")
@@ -88,5 +114,9 @@ f.write("\n")
 f.write("credits_total: %f\n" % (total_credits_major + total_credits_GE))
 f.write("credits_major: %f\n" % total_credits_major)
 f.write("credits_GE: %f\n" % total_credits_GE)
+f.write("\n")
+f.write("remaining_major_core_credit: %d\n" % major_core_credit)
+f.write("remaining_major_credit: %d\n" % major_credit)
+f.write("remaining_experiment_credit: %d" % experiment_credit)
 
 f.close()
