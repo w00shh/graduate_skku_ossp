@@ -24,7 +24,8 @@ def check_remaining_credits (classes, curriculum):
     
     for lecture in classes:
         for i in range(length):
-            if lecture['name'] in curriculum[i]:
+            # print(list(curriculum[i].values())[0])
+            if lecture['name'] in list(curriculum[i].values())[0]:
                 lectures_credits_taken[i] += lecture['credit']
                 break
     
@@ -160,7 +161,6 @@ def main():
     after which_division_remains(), student_ID_list will be [0, -2, 0, -2, 0, 0, 0, -3, 0, -9] for example.
     That means you need to take two more credits on leadership.
     """
-    # print(student_ID_list)
     
     
 
@@ -182,13 +182,14 @@ def main():
     for i in range(len(student_ID_list)):
         # f.write("%d " % student_ID_list[i])
         if student_ID_list[i] < 0:
-            f.write("%d : " % i)
-            for item in seventeenVersion[i]:
+            curriculum_name = list(seventeenVersion[i].keys())[0]
+            f.write("%s : " %  curriculum_name)
+            curriculum_courses = seventeenVersion[i][curriculum_name]
+            for item in curriculum_courses:
                 if item not in total_classes_names:
                     f.write("%s " % item)
             f.write("\n")
     
-
     f.close()
     
     
