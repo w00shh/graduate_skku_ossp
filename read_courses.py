@@ -43,8 +43,13 @@ def main():
 
     data = pd.read_csv(output_path)
     
+    odd_rows = data.iloc[1::2,:].values.tolist() # 홀수번째 row만을 추출합니다
+
+    major_classes = list() # 전공 과목
+    GE_classes = list() # 교양 과목: general elective subject
+    
     for row in odd_rows:
-        lecture = {'name':row[3],'classification':row[4], 'credit':int(row[5]), 'grade':row[7]}
+        lecture = {'name':row[4],'classification':row[5], 'credit':int(row[6]), 'grade':row[8]}
         
         if row[6] == 'P':
             lecture['grade'] = 4.5
@@ -57,12 +62,6 @@ def main():
             
     total_credits_major = 0.0
     total_credits_GE = 0.0
-
-    odd_rows = df.iloc[1::2,:].values.tolist() # 홀수번째 row만을 추출합니다
-
-
-    major_classes = list() # 전공 과목
-    GE_classes = list() # 교양 과목: general elective subject
 
 
     for row in odd_rows:
