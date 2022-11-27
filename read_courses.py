@@ -39,11 +39,15 @@ def which_division_remains (student_ID_list, GE_list):
     for i in range(len(GE_list)):
         student_ID_list[i] -= GE_list[i]
         # GE_list[i] -= student_ID_list[i]
+        
                 
 
-def main():
-    file_path = sys.argv[1]
-    student_ID = sys.argv[2]
+def main(file_path_arg, student_ID_arg):
+    file_path = file_path_arg
+    student_ID = student_ID_arg
+    
+    # file_path = sys.argv[1]
+    # student_ID = sys.argv[2]
 
     admission_year = int(student_ID[:4]) # 입학 년도
 
@@ -188,7 +192,7 @@ def main():
         # f.write("%d " % student_ID_list[i])
         if student_ID_list[i] < 0:
             curriculum_name = list(curriculum[i].keys())[0]
-            f.write("%s : " %  curriculum_name)
+            f.write("%s: " %  curriculum_name)
             curriculum_courses = curriculum[i][curriculum_name]
             for item in curriculum_courses:
                 if item not in total_classes_names:
