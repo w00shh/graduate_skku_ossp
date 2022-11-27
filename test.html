@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>PyScript input&output</title>
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <py-env>
+      - pandas
+      - paths:
+         - ./read_courses.py
+         - ./software_check.py
+         - ./side_check.py
+      </py-env>
+  </head>
+  <body>
+    <py-script src="./tmp.py"></py-script>
+    <main class="container">
+      <h1 id="output_text"></h1>
+      <div>
+        <input id="input_text" type="file" placeholder="텍스트를 입력하세요" />
+        <input id="student_ID" type="text" />
+        <button id="add_text" pys-onClick="function_add_text">Click</button>
+      </div>
+    </main>
+  </body>
+</html>
