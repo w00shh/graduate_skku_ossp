@@ -294,7 +294,7 @@ console.log(keys)
 
 for (let j=0; j<student_ID_list.length; j++) {
     if (student_ID_list[j] < 0) {
-        console.log(keys[j] ,":", (-1) * student_ID_list[j])
+        console.log(keys[j].slice(2, ) ,":", (-1) * student_ID_list[j])
     }
 }
 
