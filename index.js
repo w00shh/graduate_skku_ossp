@@ -31,6 +31,23 @@ function which_division_remains (student_ID_list, GE_list) {
     }
 }
 
+//zip function used code from https://www.tutorialspoint.com/javascript-equivalent-of-python-s-zip-function
+const zip = (...arr) => {
+   const zipped = [];
+   arr.forEach((element, ind) => {
+      element.forEach((el, index) => {
+         if(!zipped[index]){
+            zipped[index] = [];
+         };
+         if(!zipped[index][ind]){
+            zipped[index][ind] = [];
+         }
+         zipped[index][ind] = el || '';
+      })
+   });
+   return zipped;
+};
+
 $(document).ready(function() {
     // console.log(window.localStorage.getItem('subject_list'))
 })
@@ -295,6 +312,22 @@ console.log(keys)
 for (let j=0; j<student_ID_list.length; j++) {
     if (student_ID_list[j] < 0) {
         console.log(keys[j].slice(2, ) ,":", (-1) * student_ID_list[j])
+    }
+}
+student_ID_list = student_ID_list.map(n=>n*(-1))
+let result_table = zip(keys,student_ID_list)
+
+$("#container").prepend('<div class="accordion" id="leftSubject">');
+let idx = 0;
+for(let i in result_table){
+    if(result_table[i][1] != 0){
+        $("#leftSubject").append('<div class="accordion-item" id=item'+idx+'></div>');
+        $("#item"+idx).append('<h2 class="accordion-header" id="heading'+idx+'"></h2>');
+        $("#heading"+idx).append('<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target=#collapse'+idx+' aria-expanded="true" aria-controls="collapse'+idx+'">'+result_table[i][0]+'</button>');
+        $("#item"+idx).append('<div id="collapse'+idx+'" class="accordion-collapse collapse show" aria-labelledby="heading'+idx+'" data-bs-parent="#leftSubject">'+'<div class="accordion-body" id="body'+idx+'"></div></div>');
+        $("#body"+idx).append("<div>"+GE_check[17]+"</div>");
+        console.log(result_table[i][0],result_table[i][1])
+        idx++
     }
 }
 
