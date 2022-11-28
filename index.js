@@ -48,6 +48,7 @@ const zip = (...arr) => {
    return zipped;
 };
 
+
 $(document).ready(function() {
     // console.log(window.localStorage.getItem('subject_list'))
 })
@@ -175,8 +176,9 @@ let GE_check = {
 let odd_rows = JSON.parse(window.localStorage.getItem('subject_list'));
 console.log(odd_rows[2]);
 
-console.log(window.localStorage.getItem("student_ID"))
-
+// console.log( JSON.parse(window.localStorage.getItem("student_ID")) )
+let student_ID = JSON.parse(window.localStorage.getItem("student_ID"))[0]
+console.log(student_ID)
 
 let data = []
 
@@ -229,7 +231,10 @@ let experiment_credit = 0.0 // 실험실습.
 let major_core_credit = 0.0 // 전공코어 (or 전공핵심).
 let major_credit = 0.0 // 전공일반 (or 전공심화).
 
-let admission_year = 2019;
+let admission_year = student_ID.slice(0,4)
+admission_year = parseInt(admission_year)
+// console.log(typeof admission_year)
+// console.log(admission_year)
 
 if (admission_year >= 2021) {
     experiment_credit = 6
