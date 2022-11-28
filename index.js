@@ -324,15 +324,23 @@ let result_table = zip(keys,student_ID_list)
 
 $("#container").prepend('<div class="accordion" id="leftSubject">');
 let idx = 0;
+let check_ID = admission_year%2000;
+if(check_ID<16)
+    check_ID = 16;
+else if(check_ID>16 && check_ID<20 )
+    check_ID = 17;
+else if(check_ID > 21)
+    check_ID = 21;
+else
+    check_ID = admission_year%2000;
 for(let i in result_table){
     if(result_table[i][1] != 0){
         $("#leftSubject").append('<div class="accordion-item" id=item'+idx+'></div>');
         $("#item"+idx).append('<h2 class="accordion-header" id="heading'+idx+'"></h2>');
         $("#heading"+idx).append('<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target=#collapse'+idx+' aria-expanded="true" aria-controls="collapse'+idx+'">'+result_table[i][0]+'</button>');
         $("#item"+idx).append('<div id="collapse'+idx+'" class="accordion-collapse collapse show" aria-labelledby="heading'+idx+'" data-bs-parent="#leftSubject">'+'<div class="accordion-body" id="body'+idx+'"></div></div>');
-        $("#body"+idx).append("<div>"+GE_check[17]+"</div>");
-        console.log(result_table[i][0],result_table[i][1])
-        idx++
+        $("#body"+idx).append("<div>"+GE_check[check_ID][result_table[i][0]].join("<br>")+"</div>");
+        idx++;
     }
 }
 
