@@ -342,12 +342,11 @@ for(let i in result_table){
         let recommend_list = GE_check[check_ID][result_table[i][0]];
         for(let i in recommend_list){
             let url = 'https://everytime.kr/lecture/search?keyword='+recommend_list[i]+'&condition=name';
-            let btn = '<button type="button" class="btn btn-primary">강평 보기</button><br>';
+            let btn = '<button type="button" class="btn btn-primary btn-sm">강평 보기</button><br>';
             btn = "<a href='"+url+"' target = '_blank'>" + btn + "</a>";
 
-            $("#body"+idx).append(recommend_list[i]+" " + btn+"</div>");
+            $("#body"+idx).append("<div class='m-3 text-center'>"+recommend_list[i]+" " + btn+"</div></div>");
         }
-//        $("#body"+idx).append("<div>"+GE_check[check_ID][result_table[i][0]].join("<br>")+"</div>");
         idx++;
     }
 }
