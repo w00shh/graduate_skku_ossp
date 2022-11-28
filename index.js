@@ -339,7 +339,15 @@ for(let i in result_table){
         $("#item"+idx).append('<h2 class="accordion-header" id="heading'+idx+'"></h2>');
         $("#heading"+idx).append('<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target=#collapse'+idx+' aria-expanded="true" aria-controls="collapse'+idx+'">'+result_table[i][0]+'</button>');
         $("#item"+idx).append('<div id="collapse'+idx+'" class="accordion-collapse collapse show" aria-labelledby="heading'+idx+'" data-bs-parent="#leftSubject">'+'<div class="accordion-body" id="body'+idx+'"></div></div>');
-        $("#body"+idx).append("<div>"+GE_check[check_ID][result_table[i][0]].join("<br>")+"</div>");
+        let recommend_list = GE_check[check_ID][result_table[i][0]];
+        for(let i in recommend_list){
+            let url = 'https://everytime.kr/lecture/search?keyword='+recommend_list[i]+'&condition=name';
+            let btn = '<button type="button" class="btn btn-primary">강평 보기</button><br>';
+            btn = "<a href='"+url+"' target = '_blank'>" + btn + "</a>";
+
+            $("#body"+idx).append(recommend_list[i]+" " + btn+"</div>");
+        }
+//        $("#body"+idx).append("<div>"+GE_check[check_ID][result_table[i][0]].join("<br>")+"</div>");
         idx++;
     }
 }
