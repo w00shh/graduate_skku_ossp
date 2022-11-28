@@ -34,7 +34,5 @@ function handleExcelDataCsv(sheet) {
 function submit_form() {
   let Student_ID = [];
   Student_ID.push($("#ID_input").val());
-  localStorage.setItem("subject_list", JSON.stringify(subject_list));
   localStorage.setItem("student_ID", JSON.stringify(Student_ID));
-  window.location.href = "./check.html";
 }
