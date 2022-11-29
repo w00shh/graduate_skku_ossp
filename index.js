@@ -11,7 +11,7 @@ function check_remaining_credits (classes, curriculum) {
     console.log(lectures_credits_taken.length)
     // console.log(classes)
     // console.log(classes[2]['name'])
-    // console.log(curriculum[keys[2]] )
+    console.log(curriculum[keys[2]] )
 
     for (let i=0; i<classes.length; i++) {
         for (let j=0; j<length; j++) {
