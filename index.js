@@ -451,7 +451,8 @@ for(let i in result_table){
 }
 
 $("#container").append('<br><div class="accordion" id="leftMajor" style="width:100%">');
-let major_table = zip(major_keys,major_values);
+major_keys = major_keys.map(n=>n[0]=="구"?n.slice(2,):n)
+ let major_table = zip(major_keys,major_values);
 let major_idx = 50;
 for(let i in major_table){
     if(major_table[i][1] != 0){
