@@ -11,7 +11,6 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" />
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.3/xlsx.full.min.js"></script>
     <title>Document</title>
   </head>
   <body>
@@ -22,6 +21,7 @@
           <i class="bi bi-mortarboard me-1"></i>
           졸업스꾸
         </a>
+
         <button
           class="navbar-toggler"
           type="button"
@@ -50,58 +50,20 @@
         </div>
       </div>
     </nav>
-
-    <div class="container text-center">
-      <header class="fs-1 fw-bold">무슨 과목을 들어야되지..?</header>
-      <br>
-      <article>
-        졸업까지 몇학기 안남았는데, 어떤 과목을 들어야될까?
-        <br />
-      </article>
-      <article>
-        사용법:
-        <br />
-        1. [GLS] - [전공별 성적] - [조회] - [우클릭] - [엑셀 다운로드]
-        <br />
-        2. 저장된 파일과 학번을 입력해주세요.
-        <br />
-        3. 제출 버튼 클릭 후 남은 과목을 확인하세요!
-      </article>
+    <div
+      class="container d-flex flex-column align-items-center text-center"
+      id="container">
       <br />
-
-      <div class="mb-3">
-        <input
-          class="form-control form-control-sm"
-          id="xlsx_input"
-          type="file"
-          onchange="excelExport(event)" />
-      </div>
-
-      <div class="input-group input-group-sm mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-sm"
-          >학번을 입력하세요 :</span
-        >
-        <input
-          type="text"
-          class="form-control"
-          aria-label="Sizing example input"
-          aria-describedby="inputGroup-sizing-sm"
-          id="ID_input" />
-      </div>
-
-      <!--임시로 버튼에 anchor 지정하였음.-->
-      <button
-        type="submit"
-        class="btn btn-success mb-2"
-        id="submit_btn"
-        onclick="submit_form(); location.href='./check.html'">
-        남은 과목 확인
-      </button>
+      <h3>정우석</h3>
+      <iframe src="https://w00shh.github.io/profile/" style="width:100%; height:600px"></iframe>
+      <h3>최윤채</h3>
+      <iframe src="https://YunchaeChoi.github.io/" style="width:100%; height:1600px"></iframe>
+      <h3>이승현</h3>
+      <iframe src="https://haltsh.github.io" style="width:100%; height:700px"></iframe>
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
       crossorigin="anonymous"></script>
-    <script src="./get_csv.js"></script>
   </body>
 </html>
