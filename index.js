@@ -473,8 +473,9 @@ console.log(GE_check[GE_key])
 student_ID_list = student_ID_list.map(n=>n*(-1))
 let result_table = zip(keys,student_ID_list)
 
+print_txt = "<div class=''>" + print_txt + "</div>";
 
-$("#container").prepend("필수 교양/ 전공 과목중, 어떤 과목을 들어야 할지 모르겠다면, 하단에 있는 과목들 중에서 골라보는 것은 어떨까요?<br>과목 구분에 따라서 추천 과목 및 강의평을 확인하실 수 있습니다.");
+$("#container").prepend("필수 교양/ 전공 과목중, 어떤 과목을 들어야 할지 모르겠다면, 하단에 있는 과목들 중에서 골라보는 것은 어떨까요?<br>과목 구분에 따라서 추천 과목 및 강의평을 확인하실 수 있습니다.<br>");
 $("#container").prepend(print_txt +"<br>");
 
 $("#container").append('<div class="accordion" id="leftSubject" style="width:100%">');
@@ -489,12 +490,12 @@ else if(check_ID > 21)
 else
     check_ID = admission_year%2000;
 for(let i in result_table){
-    if(result_table[i][1] != 0){
+    if(result_table[i][1] > 0){
         $("#leftSubject").append('<div class="accordion-item" id=item'+idx+'></div>');
         $("#item"+idx).append('<h2 class="accordion-header" id="heading'+idx+'"></h2>');
         let accordion_head = result_table[i][0] + " : " + result_table[i][1] + "학점 남았습니다.";
-        $("#heading"+idx).append('<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target=#collapse'+idx+' aria-expanded="true" aria-controls="collapse'+idx+'">'+accordion_head+'</button>');
-        $("#item"+idx).append('<div id="collapse'+idx+'" class="accordion-collapse collapse show" aria-labelledby="heading'+idx+'" data-bs-parent="#leftSubject">'+'<div class="accordion-body" id="body'+idx+'"></div></div>');
+        $("#heading"+idx).append('<button class="accordion-button collapsed text-bg-success" type="button" data-bs-toggle="collapse" data-bs-target=#collapse'+idx+' aria-expanded="true" aria-controls="collapse'+idx+'">'+accordion_head+'</button>');
+        $("#item"+idx).append('<div id="collapse'+idx+'" class="accordion-collapse collapse" aria-labelledby="heading'+idx+'" data-bs-parent="#leftSubject">'+'<div class="accordion-body" id="body'+idx+'"></div></div>');
         let recommend_list = GE_check[check_ID][result_table[i][0]];
         for(let i in recommend_list){
             let url = 'https://everytime.kr/lecture/search?keyword='+recommend_list[i]+'&condition=name';
@@ -511,7 +512,7 @@ $("#container").append('<br><div class="accordion" id="leftMajor" style="width:1
  let major_table = zip(major_keys,major_values);
 let major_idx = 50;
 for(let i in major_table){
-    if(major_table[i][1] != 0){
+    if(major_table[i][1] > 0){
         $("#leftMajor").append('<div class="accordion-item" id=Majoritem'+major_idx+'></div>');
         $("#Majoritem"+major_idx).append('<h2 class="accordion-header" id="Majorheading'+major_idx+'"></h2>');
 
@@ -520,12 +521,12 @@ for(let i in major_table){
         accordion_head += " : " + major_table[i][1] + "학점 남았습니다."
 
         if(major_table[i][0][0] == "구"){
-            $("#Majorheading"+major_idx).append('<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target=#collapse'+major_idx+' aria-expanded="true" aria-controls="collapse'+major_idx+'">'+accordion_head+'</button>');
+            $("#Majorheading"+major_idx).append('<button class="accordion-button collapsed text-bg-success" type="button" data-bs-toggle="collapse" data-bs-target=#collapse'+major_idx+' aria-expanded="true" aria-controls="collapse'+major_idx+'">'+accordion_head+'</button>');
         }
         else{
-            $("#Majorheading"+major_idx).append('<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target=#collapse'+major_idx+' aria-expanded="true" aria-controls="collapse'+major_idx+'">'+accordion_head+'</button>');
+            $("#Majorheading"+major_idx).append('<button class="accordion-button collapsed text-bg-success" type="button" data-bs-toggle="collapse" data-bs-target=#collapse'+major_idx+' aria-expanded="true" aria-controls="collapse'+major_idx+'">'+accordion_head+'</button>');
         }
-        $("#Majoritem"+major_idx).append('<div id="collapse'+major_idx+'" class="accordion-collapse collapse show" aria-labelledby="Majorheading'+major_idx+'" data-bs-parent="#leftSubject">'+'<div class="accordion-body" id="body'+major_idx+'"></div></div>');
+        $("#Majoritem"+major_idx).append('<div id="collapse'+major_idx+'" class="accordion-collapse collapse" aria-labelledby="Majorheading'+major_idx+'" data-bs-parent="#leftSubject">'+'<div class="accordion-body" id="body'+major_idx+'"></div></div>');
         let major_recommend_list = software_check[major_table[i][0]];
         for(let i in major_recommend_list){
             let url = 'https://everytime.kr/lecture/search?keyword='+major_recommend_list[i]+'&condition=name';
