@@ -502,14 +502,18 @@ for(let i in result_table){
 }
 
 $("#container").append('<br><div class="accordion" id="leftMajor" style="width:100%">');
-major_keys = major_keys.map(n=>n[0]=="구"?n.slice(2,):n)
  let major_table = zip(major_keys,major_values);
 let major_idx = 50;
 for(let i in major_table){
     if(major_table[i][1] != 0){
         $("#leftMajor").append('<div class="accordion-item" id=Majoritem'+major_idx+'></div>');
         $("#Majoritem"+major_idx).append('<h2 class="accordion-header" id="Majorheading'+major_idx+'"></h2>');
-        $("#Majorheading"+major_idx).append('<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target=#collapse'+major_idx+' aria-expanded="true" aria-controls="collapse'+major_idx+'">'+major_table[i][0]+'</button>');
+        if(major_table[i][0][0] == "구"){
+            $("#Majorheading"+major_idx).append('<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target=#collapse'+major_idx+' aria-expanded="true" aria-controls="collapse'+major_idx+'">'+major_table[i][0].slice(2,)+'</button>');
+        }
+        else{
+            $("#Majorheading"+major_idx).append('<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target=#collapse'+major_idx+' aria-expanded="true" aria-controls="collapse'+major_idx+'">'+major_table[i][0]+'</button>');
+        }
         $("#Majoritem"+major_idx).append('<div id="collapse'+major_idx+'" class="accordion-collapse collapse show" aria-labelledby="Majorheading'+major_idx+'" data-bs-parent="#leftSubject">'+'<div class="accordion-body" id="body'+major_idx+'"></div></div>');
         let major_recommend_list = software_check[major_table[i][0]];
         for(let i in major_recommend_list){
