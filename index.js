@@ -319,15 +319,15 @@ if (admission_year < 2021) {
     major_core_credit = 27
     major_credit = 24
     for (lecture of major_classes) {
-        if (software_check["oldMajorCore"].includes(lecture['name'])) {
+        if (software_check["전공핵심"].includes(lecture['name'])) {
             console.log(lecture['name'])
             major_core_credit -= lecture['credit']
         }
-        if (software_check["oldMajorNormal"].includes(lecture['name'])) {
+        if (software_check["구_전공일반"].includes(lecture['name'])) {
             console.log(lecture['name'])
             major_credit -= lecture['credit']
         }
-        if (software_check["oldExperiment"].includes(lecture['name'])) {
+        if (software_check["구_실험/실습"].includes(lecture['name'])) {
             console.log(lecture['name'])
             experiment_credit -= lecture['credit']
         }
