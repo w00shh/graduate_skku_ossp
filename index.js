@@ -403,8 +403,8 @@ let major_keys = Object.keys(remaining_major_credit_list)
 let print_txt = "";
 for (let j=0; j<major_keys.length; j++) {
     if (major_values[j] > 0) {
-        console.log(major_keys[j]+ ":", major_values[j])
-        print_txt+= major_keys[j]+ ":"+ major_values[j] + "<br>";
+        console.log(major_keys[j]+ " : ", major_values[j])
+        print_txt+= major_keys[j]+ " : "+ major_values[j] + "<br>";
     }
 }
 
@@ -413,14 +413,14 @@ if (admission_year < 2021) {
 }
 
 // 수강한 전공, 교양 각 학점과 내 학번이 수강해야 하는 총 학점.
-console.log("전공 이수 총 학점:", total_credits_major)
-print_txt += "전공 이수 총 학점:" + total_credits_major + "<br>";
-console.log("교양 이수 총 학점:", total_credits_GE)
-print_txt += "교양 이수 총 학점:" + total_credits_GE + "<br>";
-console.log("총 요구학점:", total_credits[admission_year + ""])
-print_txt += "총 요구학점:" + total_credits[admission_year + ""] + "<br>";
-console.log("이만큼 더 들으세요:", total_credits[admission_year + ""] - total_credits_major - total_credits_GE)
-print_txt += "잔여학점 :" + (total_credits[admission_year + ""] - total_credits_major - total_credits_GE) + "<br>"; 
+console.log("전공 이수 총 학점 : ", total_credits_major)
+print_txt += "전공 이수 총 학점 : " + total_credits_major + "<br>";
+console.log("교양 이수 총 학점 : ", total_credits_GE)
+print_txt += "교양 이수 총 학점 : " + total_credits_GE + "<br>";
+console.log("총 요구학점 : ", total_credits[admission_year + ""])
+print_txt += "총 요구학점 : " + total_credits[admission_year + ""] + "<br>";
+console.log("잔여학점:", total_credits[admission_year + ""] - total_credits_major - total_credits_GE)
+print_txt += "잔여학점 : " + (total_credits[admission_year + ""] - total_credits_major - total_credits_GE) + "<br>"; 
 
 
 for (key of major_keys) {
