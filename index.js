@@ -430,7 +430,11 @@ for (key of major_keys) {
     console.log(software_check[key])
 }
 
-
+let GE_key = ""
+if (admission_year < 2017) {
+    GE_key = "16"
+}
+// if (admission_year >= 2017 && admission_year < )
 
 
 student_ID_list = student_ID_list.map(n=>n*(-1))
