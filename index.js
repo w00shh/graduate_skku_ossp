@@ -400,17 +400,25 @@ let major_values = Object.values(remaining_major_credit_list)
 let major_keys = Object.keys(remaining_major_credit_list)
 
 
-let print_txt = "";
-for (let j=0; j<major_keys.length; j++) {
-    if (major_values[j] > 0) {
-        console.log(major_keys[j]+ " : ", major_values[j])
-        print_txt+= major_keys[j]+ " : "+ major_values[j] + "<br>";
-    }
-}
 
 if (admission_year < 2021) {
     major_keys = ["전공핵심", "구_전공일반", "구_실험/실습"]
 }
+
+let print_txt = "<div class='fs-5'>잔여 학점 목록:</div>";
+for (let j=0; j<major_keys.length; j++) {
+    if (major_values[j] > 0) {
+        if(major_keys[j][0] === "구"){
+            console.log(major_keys[j].slice(2,)+ " : ", major_values[j])
+            print_txt+= major_keys[j].slice(2,)+ " : "+ major_values[j] + "<br>";
+        }
+        else{
+            console.log(major_keys[j]+ " : ", major_values[j])
+            print_txt+= major_keys[j]+ " : "+ major_values[j] + "<br>";
+        }
+    }
+}
+
 
 // 수강한 전공, 교양 각 학점과 내 학번이 수강해야 하는 총 학점.
 console.log("전공 이수 총 학점 : ", total_credits_major)
