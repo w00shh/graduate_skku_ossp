@@ -1,4 +1,5 @@
 # 졸업스꾸
+[Youtube](https://youtu.be/awkAR2I4puQ)
 
 # 🤲 Team20
 
