@@ -44,7 +44,11 @@
               <a class="nav-link" href="./aboutus.html">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://github.com/W00SHH/W00SHH.github.io">Github</a>
+              <a
+                class="nav-link"
+                href="https://github.com/W00SHH/W00SHH.github.io"
+                >Github</a
+              >
             </li>
           </ul>
         </div>
@@ -53,7 +57,7 @@
 
     <div class="container text-center">
       <header class="fs-1 fw-bold">무슨 과목을 들어야되지..?</header>
-      <br>
+      <br />
       <article>
         졸업까지 몇학기 안남았는데, 어떤 과목을 들어야될까?
         <br />
@@ -76,20 +80,20 @@
           type="file"
           onchange="excelExport(event)" />
       </div>
+      학번을 선택해주세요!
+      <select
+        class="form-select form-select-sm"
+        aria-label=".form-select-sm example" id="ID_input">
+        <option value="2016" class="text-center">16학번</option>
+        <option value="2017" class="text-center">17학번</option>
+        <option value="2018" class="text-center">18학번</option>
+        <option value="2019" class="text-center">19학번</option>
+        <option value="2020" class="text-center">20학번</option>
+        <option value="2021" class="text-center">21학번</option>
+        <option value="2022" class="text-center">22학번</option>
+      </select>
+      <br />
 
-      <div class="input-group input-group-sm mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-sm"
-          >학번을 입력하세요 :</span
-        >
-        <input
-          type="text"
-          class="form-control"
-          aria-label="Sizing example input"
-          aria-describedby="inputGroup-sizing-sm"
-          id="ID_input" />
-      </div>
-
-      <!--임시로 버튼에 anchor 지정하였음.-->
       <button
         type="submit"
         class="btn btn-success mb-2"
