@@ -413,7 +413,15 @@ console.log("이만큼 더 들으세요:", total_credits[admission_year + ""] - 
 student_ID_list = student_ID_list.map(n=>n*(-1))
 let result_table = zip(keys,student_ID_list)
 
-$("#container").prepend('<div class="accordion" id="leftSubject">');
+let left_gyo = 0;
+student_ID_list.forEach(n => left_gyo += n);
+
+$("#container").prepend("필수교양 " + left_gyo +"학점 남았습니다.");
+
+$("#container").append("필수 교양/ 전공 과목중, 어떤 과목을 들어야 할지 모르겠다면, 하단에 있는 과목들 중에서 골라보는 것은 어떨까요?<br>");
+$("#container").append("과목 구분에 따라서 추천 과목 및 강의평을 확인하실 수 있습니다.");
+
+$("#container").append('<div class="accordion" id="leftSubject">');
 let idx = 0;
 let check_ID = admission_year%2000;
 if(check_ID<16)

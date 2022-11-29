@@ -52,15 +52,24 @@
     </nav>
 
     <div class="container text-center">
-      <header class="fs-1 fw-bold">제목 입력 란</header>
-      <article>ㅁㄴㅇㄹㅁㄴㅇㄹㄴㅁㅇㄹ 대충 텍스트 쓸 공간</article>
-
+      <header class="fs-1 fw-bold">무슨 과목을 들어야되지..?</header>
+      <br>
+      <article>
+        졸업까지 몇학기 안남았는데, 어떤 과목을 들어야될까?
+        <br />
+      </article>
+      <article>
+        사용법:
+        <br />
+        1. [GLS] - [전공별 성적] - [조회] - [우클릭] - [엑셀 다운로드]
+        <br />
+        2. 저장된 파일과 학번을 입력해주세요.
+        <br />
+        3. 제출 버튼 클릭 후 남은 과목을 확인하세요!
+      </article>
       <br />
 
       <div class="mb-3">
-        <label for="xlsx_input" class="form-label"
-          >대충 엑셀파일 업로드하세요라는 뜻</label
-        >
         <input
           class="form-control form-control-sm"
           id="xlsx_input"
@@ -86,7 +95,7 @@
         class="btn btn-success mb-2"
         id="submit_btn"
         onclick="submit_form(); location.href='./check.html'">
-        대충 제출한다는 버튼
+        남은 과목 확인
       </button>
     </div>
     <script
