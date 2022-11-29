@@ -236,6 +236,21 @@ for (row of odd_rows) {
 let total_credits_major = 0;
 let total_credits_GE = 0;
 
+// 2016 : 115
+// 2017 ~ 2019 : 114
+// 2020 : 118
+// 21 ~ 22 : 116
+let total_credits = {
+    "2016" : 115,
+    "2017" : 114,
+    "2018" : 114,
+    "2019" : 114,
+    "2020" : 118,
+    "2021" : 116,
+    "2022" : 116,
+};
+
+
 let GPA_major = 0.0;
 let GPA_GE = 0.0;
 let GPA_total = 0.0;
@@ -249,6 +264,8 @@ for (course of GE_classes) {
     total_credits_GE += course['credit'];
     GPA_GE += course['credit'] * course['grade'];
 }
+
+
 
 GPA_total = (GPA_major + GPA_GE) / (total_credits_major + total_credits_GE);
 GPA_major /= total_credits_major;
@@ -342,21 +359,21 @@ if (admission_year > 2020) {
 
 // console.log(GE_classes)
 student_ID_list = check_remaining_credits(GE_classes, curriculum);
-console.log(student_ID_list, GE_list)
+// console.log(student_ID_list, GE_list)
 which_division_remains(student_ID_list, GE_list);
 
-console.log(student_ID_list)
+// console.log(student_ID_list)
 
-console.log(GPA_major)
-console.log(GPA_GE)
-console.log(GPA_total)
+// console.log(GPA_major)
+// console.log(GPA_GE)
+// console.log(GPA_total)
 
-console.log(total_credits_major)
-console.log(total_credits_GE)
+// console.log(total_credits_major)
+// console.log(total_credits_GE)
 
-console.log(student_ID_list)
+// console.log(student_ID_list)
 keys = Object.keys(curriculum)
-console.log(keys)
+// console.log(keys)
 
 for (let j=0; j<student_ID_list.length; j++) {
     if (student_ID_list[j] < 0) {
@@ -374,6 +391,11 @@ for (let j=0; j<major_keys.length; j++) {
     }
 }
 
+// 수강한 전공, 교양 각 학점과 내 학번이 수강해야 하는 총 학점.
+console.log("전공 이수 총 학점:", total_credits_major)
+console.log("교양 이수 총 학점:", total_credits_GE)
+console.log("총 요구학점:", total_credits[admission_year + ""])
+console.log("이만큼 더 들으세요:", total_credits[admission_year + ""] - total_credits_major - total_credits_GE)
 
 
 student_ID_list = student_ID_list.map(n=>n*(-1))
