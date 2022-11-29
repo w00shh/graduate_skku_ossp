@@ -240,6 +240,12 @@ for (obj of GE_classes) {
 }
 console.log(GE_classes_names)
 
+let major_classes_names = []
+for (obj of major_classes) {
+    major_classes_names.push(obj["name"])
+}
+console.log(major_classes_names)
+
 let total_credits_major = 0;
 let total_credits_GE = 0;
 
@@ -408,6 +414,17 @@ console.log("전공 이수 총 학점:", total_credits_major)
 console.log("교양 이수 총 학점:", total_credits_GE)
 console.log("총 요구학점:", total_credits[admission_year + ""])
 console.log("이만큼 더 들으세요:", total_credits[admission_year + ""] - total_credits_major - total_credits_GE)
+
+
+
+for (key of major_keys) {
+    for (maj of major_classes_names) {
+        software_check[key] =  software_check[key].filter((ele) => ele !== maj) 
+    }
+    console.log(software_check[key])
+}
+
+
 
 
 student_ID_list = student_ID_list.map(n=>n*(-1))
