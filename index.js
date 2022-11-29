@@ -434,7 +434,35 @@ let GE_key = ""
 if (admission_year < 2017) {
     GE_key = "16"
 }
-// if (admission_year >= 2017 && admission_year < )
+if (admission_year >= 2017 && admission_year < 2020) {
+    GE_key = "17"
+}
+
+if (admission_year == 2020) {
+    GE_key = "20"
+}
+
+if (admission_year > 2020) {
+    GE_key = "21"
+}
+
+// for (key of major_keys) {
+//     for (maj of major_classes_names) {
+//         software_check[key] =  software_check[key].filter((ele) => ele !== maj) 
+//     }
+//     console.log(software_check[key])
+// }
+console.log(GE_check[GE_key])
+GE_keys_names = Object.keys(GE_check[GE_key])
+console.log(GE_keys_names)
+
+for (let j=0; j<GE_keys_names.length; j++) {
+    for (ge of GE_classes_names) {
+        GE_check[GE_key][GE_keys_names[j]]= GE_check[GE_key][GE_keys_names[j]].filter((ele) => ele !== ge)
+    }
+}
+
+console.log(GE_check[GE_key])
 
 
 student_ID_list = student_ID_list.map(n=>n*(-1))
