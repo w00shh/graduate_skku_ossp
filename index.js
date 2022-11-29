@@ -25,6 +25,33 @@ function check_remaining_credits (classes, curriculum) {
     return lectures_credits_taken;
 }
 
+function check_remaining_credits_major (classes, curriculum) {
+    // console.log(curriculum["17Insung"])
+
+    let length = Object.keys(curriculum).length;
+    let keys = Object.keys(curriculum)
+    // console.log(keys[2])
+    let lectures_credits_taken = new Array(length)
+    for (let i=0; i<length; i++) {
+        lectures_credits_taken[i] = 0;
+    }
+    console.log(lectures_credits_taken.length)
+    // console.log(classes)
+    // console.log(classes[2]['name'])
+    console.log(curriculum[keys[2]] )
+
+    for (let i=0; i<classes.length; i++) {
+        for (let j=0; j<length; j++) {
+            if ( curriculum[keys[j]].includes(classes[i]['name']) ) {
+                lectures_credits_taken[j] += classes[i]['credit']
+                // break;
+            }
+        }
+    }
+    console.log(lectures_credits_taken)
+    return lectures_credits_taken;
+}
+
 function which_division_remains (student_ID_list, GE_list) {
     for (let i=0; i<GE_list.length; i++) {
         student_ID_list[i] -= GE_list[i];
@@ -236,22 +263,31 @@ admission_year = parseInt(admission_year)
 // console.log(typeof admission_year)
 // console.log(admission_year)
 
+// console.log(software_check["전공일반"])
+// console.log(major_classes)
+
+// console.log(major_classes[1]["name"])
+
+// console.log(software_check["전공일반"].includes(major_classes[1]["name"]))
+
 if (admission_year >= 2021) {
     experiment_credit = 6
     major_core_credit = 36
     major_credit = 21
     for (lecture of major_classes) {
-        if (software_check["newMajorCore"].includes(lecture['name'])) {
+        if (software_check["전공코어"].includes(lecture['name'])) {
             major_core_credit -= lecture['credit']
         }
-        if (software_check["newMajorNormal"].includes(lecture['name'])) {
+        if (software_check["전공일반"].includes(lecture['name'])) {
             major_credit -= lecture['credit']
         }
-        if (software_check["newExperiment"].includes(lecture['name'])) {
+        if (software_check["실험/실습"].includes(lecture['name'])) {
             experiment_credit -= lecture['credit']
         }
     }
 }
+
+
 
 if (admission_year < 2021) {
     experiment_credit = 14
@@ -269,6 +305,11 @@ if (admission_year < 2021) {
         }
     }
 }
+
+// console.log(major_core_credit, major_credit, experiment_credit)
+let remaining_major_credit_list = {"전공코어":major_core_credit, "전공일반":major_credit, "실험/실습":experiment_credit}
+console.log(remaining_major_credit_list)
+
 
 let curriculum = null;
 let student_ID_list = [];
@@ -316,9 +357,22 @@ console.log(keys)
 
 for (let j=0; j<student_ID_list.length; j++) {
     if (student_ID_list[j] < 0) {
-        console.log(keys[j].slice(2, ) ,":", (-1) * student_ID_list[j])
+        // console.log(keys[j].slice(2, ) ,":", (-1) * student_ID_list[j])
+        console.log(keys[j] ,":", (-1) * student_ID_list[j])
     }
 }
+
+let major_values = Object.values(remaining_major_credit_list)
+let major_keys = Object.keys(remaining_major_credit_list)
+
+for (let j=0; j<major_keys.length; j++) {
+    if (major_values[j] > 0) {
+        console.log(major_keys[j], ":", major_values[j])
+    }
+}
+
+
+
 student_ID_list = student_ID_list.map(n=>n*(-1))
 let result_table = zip(keys,student_ID_list)
 
