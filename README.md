@@ -69,11 +69,11 @@ GLS 상에 있는 졸업요건충족현황조회 탭은 잔여학점을 확인�
 
 ![KakaoTalk_Photo_2022-11-29-22-16-31 001.png](readme_photo/KakaoTalk_Photo_2022-11-29-22-16-31_001.png)
 
-1. 남은 과목 확인 화면
+2. 남은 과목 확인 화면
 
 ![KakaoTalk_Photo_2022-11-29-22-16-31 002.png](readme_photo/KakaoTalk_Photo_2022-11-29-22-16-31_002.png)
 
-1. About Us
+3. About Us
 
 ![KakaoTalk_Photo_2022-11-29-22-16-31 003.png](readme_photo/KakaoTalk_Photo_2022-11-29-22-16-31_003.png)
 
